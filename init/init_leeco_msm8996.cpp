@@ -123,7 +123,7 @@ void init_alarm_boot_properties()
 
 void vendor_load_properties() {
     char device[PROP_VALUE_MAX];
-    int isLEX720 = 0, isLEX727 = 0, isLEX820 = 0, isLEX829 = 0;
+    int isLEX720 = 0, isLEX727 = 0, isLEX820 = 0, isLEX829 = 0, isLEX910 = 0;
 
     if (read_file2(DEVINFO_FILE, device, sizeof(device)))
     {
@@ -142,6 +142,14 @@ void vendor_load_properties() {
         else if (!strncmp(device, "le_x2", 5))
         {
             isLEX820 = 1;
+        }
+		else if (!strncmp(device, "le_xp_na_oversea", 16))
+        {
+            isLEX910 = 1;
+        }
+		else if (!strncmp(device, "le_xp", 5))
+        {
+            isLEX910 = 1;
         }
     }
 
@@ -179,6 +187,11 @@ void vendor_load_properties() {
         // This is LEX829
         property_set("ro.product.model", "LEX829");
     }
+    else if (isLEX910)
+    {
+        // This is LEX910
+        property_set("ro.product.model", "LEX910");
+    }	
     else
     {
         property_set("ro.product.model", "UNKNOWN");
