@@ -190,12 +190,12 @@ void vendor_load_properties() {
     else if (isLEX910)
     {
         // This is LEX910
-        property_set("ro.product.model", "LEX910");
+        property_set("ro.product.model", "Letv X910");
     }
     else if (isLEX920)
     {
         // This is LEX920
-        property_set("ro.product.model", "LEX920");
+        property_set("ro.product.model", "Letv X920");
     }
     else
     {
